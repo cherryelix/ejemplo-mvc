@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mx.uesh</groupId>
+  <artifactId>ejemplo-mvc</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>ejemplo-mvc Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  <properties>
+	<jdk.version>1.8</jdk.version>
+  	<org.springframework.version>3.2.13.RELEASE</org.springframework.version>
+	<javax.servlet.version>2.5</javax.servlet.version>
+	<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
+	<javax.servlet.jsp.jstl.api.version>1.2.1</javax.servlet.jsp.jstl.api.version>  
+  </properties>
+  
+  
+  <dependencies>
+  
+  	<!-- spring -->
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-core</artifactId>
+  		<version>${org.springframework.version}</version>
+  	</dependency>
+
+
+
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-web</artifactId>
+  		<version>${org.springframework.version}</version>
+  	</dependency>
+  	
+  	
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-webmvc</artifactId>
+  		<version>${org.springframework.version}</version>
+  	</dependency>
+  	<!-- /spring -->
+  	
+  	
+ 	<!-- javax-servlet -->
+     <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>servlet-api</artifactId>
+         <version>${javax.servlet.version}</version>
+     </dependency>
+     <!-- /javax-servlet -->
+ 
+     <!-- javax.servlet.jsp.jstl-api -->
+	<dependency>
+	    <groupId>javax.servlet.jsp.jstl</groupId>
+	    <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+	    <version>${javax.servlet.jsp.jstl.api.version}</version>
+	</dependency>
+	 <!-- /javax.servlet.jsp.jstl-api -->
+	 
+ 	</dependencies>
+	
+
+  <build>
+    <finalName>ejemplo-mvc</finalName>
+    
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven.compiler.plugin.version}</version>
+            <configuration>
+                <source>${jdk.version}</source>
+                <target>${jdk.version}</target>
+            </configuration>
+          </plugin>
+
+	     <plugin>
+	       <groupId>org.apache.maven.plugins</groupId>
+	       <artifactId>maven-war-plugin</artifactId>
+	       <configuration> 
+	          <archive>
+	             <manifestEntries>
+	                <dependencies>org.slf4j</dependencies>
+	             </manifestEntries>
+	          </archive>
+	       </configuration>
+	     </plugin>
+               
+        </plugins>
+    
+  </build>
+
+	
+</project>
